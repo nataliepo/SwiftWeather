@@ -13,51 +13,32 @@ import WebKit
 class ViewController: UIViewController {
 
     @IBOutlet var webView: WKWebView!
+
+    // SoHo, NYC
+    let latitude: Double = 40.7237692
+    let longitude: Double = -74.0004012
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //self.loadHTML()
-        
-        self.loadSunCalcJS()
-    }
-    
-    /*
-    func loadHTML() {
-        // load html from file...
-        var htmlFile = NSBundle.mainBundle().pathForResource("index", ofType: "html")
-        var error: NSError?
-        var htmlString: String? = String(contentsOfFile:htmlFile!, encoding: NSUTF8StringEncoding, error: &error)
-        
-        self.webView.loadHTMLString(htmlString, baseURL: nil)
-    }
-    */
-    
-    func loadSunCalcJS() {
-        // load html from file...
-        var suncalcFile = NSBundle.mainBundle().pathForResource("suncalc", ofType: "js")
-        var error: NSError?
-        var suncalcJSString: String? = String(contentsOfFile:suncalcFile!, encoding: NSUTF8StringEncoding, error: &error)
-        
-        // evaluate the following js
-        // var command = "var times = SunCalc.getTimes(new Date(), 51.5, -0.1);"
-        //var command = "var date = new Date('2013-03-05UTC'), lat = 50.5, lng = 30.5;"
-        var command = "function suncalc() { var result = SunCalc.getTimes(new Date(), 51.5, -0.1); return JSON.stringify(result); } suncalc();"
-        
-        
-        var finalString: NSString = suncalcJSString! as NSString + "\n" + command as NSString
-        
-        println("full html: \n\(finalString)")
+        var timeZone = NSTimeZone.localTimeZone()
 
-        self.webView = WKWebView()
-        self.webView.loadHTMLString("<script type='text/javascript'>\(suncalcJSString!)</script>", baseURL: nil)
+        //+(EDSunriseSet *)sunrisesetWithTimezone:(NSTimeZone *)timezone latitude:(double)lat longitude:(double)longt
         
-        self.webView!.evaluateJavaScript(command, completionHandler: { (value, error) in
-            println("got value: \(value) error: \(error)")
-        })
+        var sunriseSet:EDSunriseSet = EDSunriseSet.sunrisesetWithTimezone(timeZone, latitude:self.latitude, longitude:self.longitude)
+        
+        var sunriseDate = sunriseSet.sunrise
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy hh:mma"
+        
+        println("Sunrise time: \(dateFormatter.stringFromDate(sunriseDate!))")
+        
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
