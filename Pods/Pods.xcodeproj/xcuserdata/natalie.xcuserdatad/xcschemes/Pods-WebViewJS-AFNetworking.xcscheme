@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E26FC28CB39963E8F4FBF178"
+               BlueprintIdentifier = "A2001E4CEFDA4B5B0888572E"
                BuildableName = "libPods-WebViewJS-AFNetworking.a"
                BlueprintName = "Pods-WebViewJS-AFNetworking"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -39,7 +39,7 @@
 		E0B83C771A01758200F31B48 /* WebViewJSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebViewJSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0B83C7C1A01758200F31B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0B83C7D1A01758200F31B48 /* WebViewJSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewJSTests.swift; sourceTree = "<group>"; };
-		E0B83C8E1A0189DF00F31B48 /* AFNetworking-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-Bridge.h"; sourceTree = "<group>"; };
+		E0B83C8F1A018E1900F31B48 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		E36C4E452113B83CF23F1FAC /* Pods-WebViewJS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewJS.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebViewJS/Pods-WebViewJS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +82,7 @@
 		E0B83C591A01758200F31B48 = {
 			isa = PBXGroup;
 			children = (
-				E0B83C8E1A0189DF00F31B48 /* AFNetworking-Bridge.h */,
+				E0B83C8F1A018E1900F31B48 /* Bridge.h */,
 				E0B83C641A01758200F31B48 /* WebViewJS */,
 				E0B83C7A1A01758200F31B48 /* WebViewJSTests */,
 				E0B83C631A01758200F31B48 /* Products */,
@@ -335,6 +335,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -354,7 +355,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "AFNetworking-Bridge.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -378,6 +379,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -390,7 +392,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "AFNetworking-Bridge.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -400,9 +402,11 @@
 			baseConfigurationReference = C08B063767215499EEAED601 /* Pods-WebViewJS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = WebViewJS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/natalie/Development/Swift/WebViewJS/WebViewJS/Bridge.h;
 			};
 			name = Debug;
 		};
@@ -411,9 +415,11 @@
 			baseConfigurationReference = E36C4E452113B83CF23F1FAC /* Pods-WebViewJS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = WebViewJS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/natalie/Development/Swift/WebViewJS/WebViewJS/Bridge.h;
 			};
 			name = Release;
 		};

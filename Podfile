@@ -5,7 +5,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target "WebViewJS" do
 
-pod "AFNetworking"
+pod 'AFNetworking', '~> 2.2.4'
+
 
 end
 

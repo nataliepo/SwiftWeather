@@ -22,13 +22,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.manager.GET(self.weatherAPIEndpoint + "?lat=\(self.latitude)&long=(self.longitude)", parameters: nil, success: (operation, response) -> Void on
+
+        self.manager.GET(self.weatherAPIEndpoint + "?lat=\(self.latitude)&lon=(self.longitude)", parameters: nil, success: { (operation, response) in
+                println("Success! Response: \(response)")
             
-                // success
-            , failure: (request, error) -> Void on
-            
-            // failure
-        )
+            }, failure: {(request, error) in
+                println("failure, error: \(error)")
+            })
         
     }
     
